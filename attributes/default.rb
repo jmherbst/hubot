@@ -25,7 +25,7 @@ default['hubot']['group'] = "hubot"
 default['hubot']['private'] = true
 
 default['hubot']['name'] = "hubot"
-default['hubot']['adapter'] = "campfire"
+default['hubot']['adapter'] = "slack"
 default['hubot']['config'] = Hash.new
 default['hubot']['dependencies'] = Hash.new
 default['hubot']['hubot_scripts'] = Array.new
