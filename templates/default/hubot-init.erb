@@ -6,7 +6,7 @@
 
 DAEMON="/opt/hubot/bin/hubot"
 DAEMON_ENV="source /opt/hubot/.env"
-DAEMON_OPTS="--name <%= node['hubot']['name'] %> --adapter slack"
+DAEMON_OPTS="--name <%= node['hubot']['name'] %> --alias <%= node['hubot']['alias'] %> --adapter slack"
 
 NAME=hubot
 USER=hubot
@@ -24,7 +24,7 @@ start)
         fi
 	printf "%-50s" "Starting $DESC..."
         runuser -l $USER -c "$DAEMON_ENV && cd /opt/hubot &&  $DAEMON $DAEMON_OPTS" >> $LOG_FILE 2>&1 &
-        sleep 3
+        sleep 8
         PID=$(ps aux | grep node | head -1 | awk '{print $2}')
         if [ -z $PID ]; then
             printf "%s\n" "Fail"
